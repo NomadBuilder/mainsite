@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "signal-bloom",
+    "name": "Signal Bloom",
+    "insight": "Born where no data should’ve reached",
+    "type": "leaf",
+    "color": "#7fffd4"
+  },
+  {
+    "slug": "drift-log",
+    "name": "Drift Log",
+    "insight": "What I learned walking barefoot in rain",
+    "type": "stone",
+    "color": "#b2a27a"
+  },
+  {
+    "slug": "time-fern",
+    "name": "Time Fern",
+    "insight": "Time slows down when you debug in silence",
+    "type": "fern",
+    "color": "#a3e635"
+  },
+  {
+    "slug": "syntax-grove",
+    "name": "Syntax Grove",
+    "insight": "Syntax so clean it hums in the mist",
+    "type": "crystal",
+    "color": "#b5f3ff"
+  },
+  {
+    "slug": "echo-fruit",
+    "name": "Echo Fruit",
+    "insight": "Every tool is a memory, ripened by use",
+    "type": "fruit",
+    "color": "#ffb347"
+  },
+  {
+    "slug": "glyph-moss",
+    "name": "Glyph Moss",
+    "insight": "Patterns grow where attention lingers",
+    "type": "moss",
+    "color": "#7ec850"
+  }
+] 
