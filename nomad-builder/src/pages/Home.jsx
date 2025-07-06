@@ -49,7 +49,15 @@ export default function Home() {
       />
       {/* Animation Overlay (only after video) */}
       {phase === 'lastFrame' && !transitioning && (
-        <BuilderCoreScene />
+        <>
+          <BuilderCoreScene />
+          {/* Hero Text and Explore Button */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center z-30">
+            <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-bold font-playfair mb-10 drop-shadow-lg">Nomad Builder</h1>
+            <p className="text-white text-3xl md:text-4xl lg:text-5xl font-inter mb-6">Independent tools shaped by experience.</p>
+            <p className="text-white text-3xl md:text-4xl lg:text-5xl font-inter mb-10">Built with AI. Shared to make sense of it all.</p>
+          </div>
+        </>
       )}
       {/* Video Layer */}
       <video

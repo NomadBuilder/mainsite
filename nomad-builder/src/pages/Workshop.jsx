@@ -3,8 +3,29 @@ import profileImg from '../assets/Profile.png'
 import LuxuryStarfield from '../components/LuxuryStarfield'
 import CustomCursor from '../components/CustomCursor'
 import FlagCarousel from '../components/FlagCarousel'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Workshop() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const cue = document.getElementById('scroll-cue');
+    const handler = () => {
+      const nextSection = document.querySelector('.studio-section');
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    if (cue) {
+      cue.addEventListener('click', handler);
+      cue.style.pointerEvents = 'auto';
+      cue.style.cursor = 'pointer';
+    }
+    return () => {
+      if (cue) cue.removeEventListener('click', handler);
+    };
+  }, []);
+
   return (
     <>
       <CustomCursor />
@@ -23,16 +44,17 @@ export default function Workshop() {
               Built with AI. Shared to make sense of it all.
             </p>
           </div>
-          {/* Animated scroll cue at the bottom of the flex column */}
-          <div className="flex flex-col items-center mt-auto mb-8 z-10">
-            <div className="mb-3 text-white text-2xl md:text-3xl font-inter font-semibold opacity-90">Scroll to explore</div>
-            <div>
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M28 14V42" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
-                <path d="M18 32L28 42L38 32" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
+          {/* Pure CSS scroll cue placeholder */}
+          <div id="scroll-cue">
+            <span id="scroll-cue-text">Scroll to explore</span>
+            <span id="scroll-cue-arrow">
+              <svg viewBox="0 0 36 36" fill="none">
+                <path d="M18 10V26" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                <path d="M12 20L18 26L24 20" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
               </svg>
-            </div>
+            </span>
           </div>
+          {/* Minimal luxury scroll cue */}
         </section>
         {/* SECTION 2: Journey + Studio */}
         <section className="section studio-section min-h-screen flex flex-col items-center justify-center p-6 md:p-16">
@@ -79,7 +101,7 @@ export default function Workshop() {
               This space will grow — one tool at a time.
             </p>
             <div className="w-full flex justify-center mt-16">
-              <button id="ctaButton" className="bg-purple-600 text-white py-4 px-8 rounded-full text-2xl font-bold transition-all duration-300 transform-gpu relative overflow-hidden group" style={{zIndex: 1}}>
+              <button id="ctaButton" className="bg-purple-600 text-white py-4 px-8 rounded-full text-2xl font-bold transition-all duration-300 transform-gpu relative overflow-hidden group" style={{zIndex: 1}} onClick={() => navigate('/pool')}>
                 <span className="relative z-10">Enter the Workshop</span>
                 <span className="absolute inset-0 bg-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
               </button>
