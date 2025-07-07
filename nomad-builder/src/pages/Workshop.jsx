@@ -149,7 +149,7 @@ export default function Workshop() {
           </a>
         </div>
       </div>
-      {/* Luxury CTA at the very bottom removed as requested */}
+      {
     </>
   )
 } 
