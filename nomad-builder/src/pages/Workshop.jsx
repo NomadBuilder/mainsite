@@ -57,32 +57,63 @@ export default function Workshop() {
           {/* Minimal luxury scroll cue */}
         </section>
         {/* SECTION 2: Journey + Studio */}
-        <section className="section studio-section min-h-screen flex flex-col items-center justify-center p-6 md:p-16">
-          <div className="w-full max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-24">
-              <div className="max-w-lg w-full text-center md:text-left mb-12 md:mb-0" style={{ paddingRight: '90px' }}>
-                <p className="text-2xl md:text-4xl font-playfair font-bold tracking-tight mb-10">
+        <section className="section studio-section min-h-screen flex flex-col items-center justify-center p-6 md:p-16 overflow-x-hidden">
+          <div className="w-full md:max-w-4xl md:mx-auto overflow-x-hidden">
+            {/* Mobile layout: stacked column, only visible on mobile */}
+            <div className="flex flex-col w-full max-w-full md:hidden box-border overflow-x-hidden">
+              <div className="w-full max-w-full text-center mb-8 box-border overflow-x-visible px-1">
+                <p className="text-2xl font-playfair font-bold tracking-tight mb-8 break-words w-full max-w-full overflow-visible">
                   I’ve spent the past few years living and working around the world (40+ countries) as a digital nomad.
                 </p>
-                <p className="text-xl md:text-2xl font-inter leading-loose mb-10">
+                <p className="text-xl font-inter leading-loose mb-8 break-words w-full max-w-full overflow-visible">
                   Not just passing through, but paying attention. I’ve seen how different systems shape how we live, connect, and create meaning.
                 </p>
-                <p className="text-xl md:text-2xl font-inter leading-loose mb-8">
+                <p className="text-xl font-inter leading-loose mb-6 break-words w-full max-w-full overflow-visible">
                   That lens has reshaped how I think about design, technology, and purpose. Nomad Builder is a personal studio for building small, focused tools — each one a reflection of what I’ve learned along the way.
                 </p>
               </div>
-              <div className="flex-shrink-0 min-w-[5rem] flex flex-col items-center justify-end md:ml-8 lg:ml-12 xl:ml-20 self-end">
-                <div className="w-12 h-12 md:w-20 md:h-20 rounded-full overflow-hidden mb-6 border-2 border-purple-600 shadow-xl relative">
+              <div className="w-full max-w-full flex flex-col items-center justify-center mb-8 box-border overflow-x-hidden">
+                <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden mb-4 border-2 border-purple-600 shadow-xl relative">
+                  <img src={profileImg} alt="Aazir Munir" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black opacity-10 rounded-full"></div>
+                </div>
+                <div className="text-center max-w-full w-full">
+                  <p className="text-white text-2xl font-playfair font-bold break-words w-full max-w-full overflow-visible">Aazir Munir</p>
+                  <p className="text-gray-400 text-lg font-inter break-words w-full max-w-full overflow-visible">Product thinker, builder, global wanderer</p>
+                </div>
+              </div>
+              <div className="w-full mt-4 box-border max-w-full overflow-x-auto">
+                <div style={{ minWidth: 0, width: '100%' }}>
+                  <FlagCarousel />
+                </div>
+              </div>
+            </div>
+            {/* Desktop layout: row, only visible on md+ */}
+            <div className="hidden md:flex flex-row items-start justify-between gap-24 w-full box-border">
+              <div className="max-w-lg w-full text-left mb-0 md:pr-[90px] box-border">
+                <p className="text-4xl font-playfair font-bold tracking-tight mb-10">
+                  I’ve spent the past few years living and working around the world (40+ countries) as a digital nomad.
+                </p>
+                <p className="text-2xl font-inter leading-loose mb-10">
+                  Not just passing through, but paying attention. I’ve seen how different systems shape how we live, connect, and create meaning.
+                </p>
+                <p className="text-2xl font-inter leading-loose mb-8">
+                  That lens has reshaped how I think about design, technology, and purpose. Nomad Builder is a personal studio for building small, focused tools — each one a reflection of what I’ve learned along the way.
+                </p>
+              </div>
+              <div className="flex-shrink-0 min-w-[5rem] flex flex-col items-center justify-end md:ml-8 lg:ml-12 xl:ml-20 self-end mt-0 box-border">
+                <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-purple-600 shadow-xl relative">
                   <img src={profileImg} alt="Aazir Munir" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black opacity-10 rounded-full"></div>
                 </div>
                 <div className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-playfair font-bold">Aazir Munir</p>
-                  <p className="text-gray-400 text-lg md:text-xl font-inter">Product thinker, builder, global wanderer</p>
+                  <p className="text-white text-3xl font-playfair font-bold">Aazir Munir</p>
+                  <p className="text-gray-400 text-xl font-inter">Product thinker, builder, global wanderer</p>
                 </div>
               </div>
             </div>
-            <div className="w-full mt-8">
+            {/* Flag carousel always full width below on desktop */}
+            <div className="hidden md:block w-full mt-8 box-border">
               <FlagCarousel />
             </div>
           </div>

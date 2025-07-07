@@ -52,10 +52,10 @@ export default function Home() {
         <>
           <BuilderCoreScene />
           {/* Hero Text and Explore Button */}
-          <div className="absolute inset-0 flex flex-col justify-center items-center z-30">
-            <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-bold font-playfair mb-10 drop-shadow-lg">Nomad Builder</h1>
-            <p className="text-white text-3xl md:text-4xl lg:text-5xl font-inter mb-6">Independent tools shaped by experience.</p>
-            <p className="text-white text-3xl md:text-4xl lg:text-5xl font-inter mb-10">Built with AI. Shared to make sense of it all.</p>
+          <div className="absolute inset-0 flex flex-col justify-center items-center z-30 px-4 sm:px-6">
+            <h1 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-8xl font-bold font-playfair mb-4 sm:mb-6 md:mb-10 drop-shadow-lg text-center">Nomad Builder</h1>
+            <p className="text-white text-lg sm:text-xl md:text-3xl lg:text-5xl font-inter mb-2 sm:mb-4 md:mb-6 text-center">Independent tools shaped by experience.</p>
+            <p className="text-white text-lg sm:text-xl md:text-3xl lg:text-5xl font-inter mb-4 sm:mb-6 md:mb-10 text-center">Built with AI. Shared to make sense of it all.</p>
           </div>
         </>
       )}

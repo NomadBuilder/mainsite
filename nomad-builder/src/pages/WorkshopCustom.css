@@ -46,6 +46,12 @@ body {
         padding: 8rem 6rem;
     }
 }
+@media (max-width: 767px) {
+  .section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
 .max-w-4xl {
     max-width: 56rem;
     margin-left: auto;
