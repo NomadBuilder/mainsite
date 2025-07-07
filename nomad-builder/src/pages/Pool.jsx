@@ -309,105 +309,105 @@ export default function Pool() {
           zIndex: 100,
           pointerEvents: 'auto',
           background: 'rgba(255,0,0,0.05)', // debug only
-          display: 'flex',
-          justifyContent: 'center',
+          display: 'block',
+          whiteSpace: 'nowrap',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            gap: 48,
-            WebkitOverflowScrolling: 'touch',
-            boxSizing: 'border-box',
-            alignItems: 'flex-end',
-            pointerEvents: 'auto',
-            paddingTop: 32,
-            paddingBottom: 32,
-          }}
-        >
-          {tools.map((tool) => (
-            <div
-              key={tool.title}
-              style={{
-                flex: '0 0 auto',
-                width: 192,
-                height: 192,
-                borderRadius: '50%',
-                background: 'radial-gradient(circle at 60% 35%, rgba(255,255,255,0.18) 0%, rgba(180,220,255,0.10) 60%, rgba(80,120,180,0.08) 100%)',
-                boxShadow: '0 0 32px 8px rgba(120,180,255,0.25), 0 0 64px 16px rgba(80,120,180,0.10)',
-                border: '3px solid rgba(200,220,255,0.45)',
-                backdropFilter: 'blur(12px)',
-                marginBottom: 0,
-                marginTop: 0,
-                position: 'relative',
-                transition: 'transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1)',
-                cursor: 'pointer',
-                alignItems: 'flex-end',
-                justifyContent: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'scale(1.07)';
-                e.currentTarget.style.boxShadow = '0 0 48px 16px rgba(120,180,255,0.35), 0 0 96px 32px rgba(80,120,180,0.18)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.boxShadow = '0 0 32px 8px rgba(120,180,255,0.25), 0 0 64px 16px rgba(80,120,180,0.10)';
-              }}
-              onClick={() => setModalOpen(true)}
-            >
-              {/* Icon */}
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: 110,
-                width: '100%',
-                position: 'relative',
-                marginBottom: 0,
-                marginTop: 12,
-              }}>
-                {tool.icon}
-              </div>
-              {/* Inner glassy highlight */}
-              <div style={{
-                position: 'absolute',
-                top: 32,
-                left: 48,
-                width: 96,
-                height: 36,
-                borderRadius: '50%',
-                background: 'linear-gradient(120deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 100%)',
-                filter: 'blur(2px)',
-                opacity: 0.7,
-                pointerEvents: 'none',
-              }} />
+        <div style={{ width: 'max-content', margin: '0 auto' }}>
+          <div
+            style={{
+              display: 'flex',
+              gap: 48,
+              WebkitOverflowScrolling: 'touch',
+              boxSizing: 'border-box',
+              alignItems: 'flex-end',
+              pointerEvents: 'auto',
+              paddingTop: 32,
+              paddingBottom: 32,
+            }}
+          >
+            {tools.map((tool) => (
               <div
+                key={tool.title}
                 style={{
-                  marginBottom: 16,
-                  padding: '4px 16px',
-                  background: 'rgba(0,0,0,0.6)',
-                  borderRadius: 9999,
-                  color: '#fff',
-                  fontWeight: 600,
-                  fontSize: 16,
-                  letterSpacing: 1,
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
-                  zIndex: 2,
+                  flex: '0 0 auto',
+                  width: 192,
+                  height: 192,
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle at 60% 35%, rgba(255,255,255,0.18) 0%, rgba(180,220,255,0.10) 60%, rgba(80,120,180,0.08) 100%)',
+                  boxShadow: '0 0 32px 8px rgba(120,180,255,0.25), 0 0 64px 16px rgba(80,120,180,0.10)',
+                  border: '3px solid rgba(200,220,255,0.45)',
+                  backdropFilter: 'blur(12px)',
+                  marginBottom: 0,
+                  marginTop: 0,
                   position: 'relative',
-                  width: 'fit-content',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
+                  transition: 'transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1)',
+                  cursor: 'pointer',
+                  alignItems: 'center', // changed from flex-end
+                  justifyContent: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'scale(1.07)';
+                  e.currentTarget.style.boxShadow = '0 0 48px 16px rgba(120,180,255,0.35), 0 0 96px 32px rgba(80,120,180,0.18)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 0 32px 8px rgba(120,180,255,0.25), 0 0 64px 16px rgba(80,120,180,0.10)';
+                }}
+                onClick={() => setModalOpen(true)}
+              >
+                {/* Icon */}
+                <div style={{
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                }}
-              >
-                {tool.title}
+                  height: 110,
+                  width: '100%',
+                  position: 'relative',
+                  marginBottom: 0,
+                  marginTop: 12,
+                }}>
+                  {tool.icon}
+                </div>
+                {/* Inner glassy highlight */}
+                <div style={{
+                  position: 'absolute',
+                  top: 32,
+                  left: 48,
+                  width: 96,
+                  height: 36,
+                  borderRadius: '50%',
+                  background: 'linear-gradient(120deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 100%)',
+                  filter: 'blur(2px)',
+                  opacity: 0.7,
+                  pointerEvents: 'none',
+                }} />
+                <div
+                  style={{
+                    marginBottom: 16,
+                    padding: '4px 16px',
+                    background: 'rgba(0,0,0,0.6)',
+                    borderRadius: 9999,
+                    color: '#fff',
+                    fontWeight: 600,
+                    fontSize: 16,
+                    letterSpacing: 1,
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+                    zIndex: 2,
+                    position: 'relative',
+                    width: 'fit-content',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  {tool.title}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       <ComingSoonModal open={modalOpen} onClose={() => setModalOpen(false)} />
