@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import workshopVideo from '../assets/workshop.mp4';
+import workshopVideo from '../assets/Workshop.mp4';
 
 const tools = [
   {

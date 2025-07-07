@@ -1,5 +1,5 @@
 import './WorkshopCustom.css'
-import profileImg from '../assets/Profile.png'
+import profileImg from '../assets/profile.png'
 import LuxuryStarfield from '../components/LuxuryStarfield'
 import CustomCursor from '../components/CustomCursor'
 import FlagCarousel from '../components/FlagCarousel'
