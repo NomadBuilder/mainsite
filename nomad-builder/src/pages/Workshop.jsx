@@ -3,11 +3,11 @@ import profileImg from '../assets/profile.png'
 import LuxuryStarfield from '../components/LuxuryStarfield'
 import CustomCursor from '../components/CustomCursor'
 import FlagCarousel from '../components/FlagCarousel'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 export default function Workshop() {
-  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     const cue = document.getElementById('scroll-cue');
     const handler = () => {
@@ -25,6 +25,27 @@ export default function Workshop() {
       if (cue) cue.removeEventListener('click', handler);
     };
   }, []);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
+  // Close modal on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        closeModal();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isModalOpen]);
 
   return (
     <>
@@ -63,13 +84,13 @@ export default function Workshop() {
             <div className="flex flex-col w-full max-w-full md:hidden box-border overflow-x-hidden">
               <div className="w-full max-w-full text-center mb-8 box-border overflow-x-visible px-1">
                 <p className="text-2xl font-playfair font-bold tracking-tight mb-8 break-words w-full max-w-full overflow-visible">
-                  I’ve spent the past few years living and working around the world (40+ countries) as a digital nomad.
+                  I've spent the past few years living and working around the world (40+ countries) as a digital nomad.
                 </p>
                 <p className="text-xl font-inter leading-loose mb-8 break-words w-full max-w-full overflow-visible">
-                  Not just passing through, but paying attention. I’ve seen how different systems shape how we live, connect, and create meaning.
+                  Not just passing through, but paying attention. I've seen how different systems shape how we live, connect, and create meaning.
                 </p>
                 <p className="text-xl font-inter leading-loose mb-6 break-words w-full max-w-full overflow-visible">
-                  That lens has reshaped how I think about design, technology, and purpose. Nomad Builder is a personal studio for building small, focused tools — each one a reflection of what I’ve learned along the way.
+                  That lens has reshaped how I think about design, technology, and purpose. Nomad Builder is a personal studio for building small, focused tools — each one a reflection of what I've learned along the way.
                 </p>
               </div>
               <div className="w-full max-w-full flex flex-col items-center justify-center mb-8 box-border overflow-x-hidden">
@@ -92,13 +113,13 @@ export default function Workshop() {
             <div className="hidden md:flex flex-row items-start justify-between gap-24 w-full box-border">
               <div className="max-w-lg w-full text-left mb-0 md:pr-[90px] box-border">
                 <p className="text-4xl font-playfair font-bold tracking-tight mb-10">
-                  I’ve spent the past few years living and working around the world (40+ countries) as a digital nomad.
+                  I've spent the past few years living and working around the world (40+ countries) as a digital nomad.
                 </p>
                 <p className="text-2xl font-inter leading-loose mb-10">
-                  Not just passing through, but paying attention. I’ve seen how different systems shape how we live, connect, and create meaning.
+                  Not just passing through, but paying attention. I've seen how different systems shape how we live, connect, and create meaning.
                 </p>
                 <p className="text-2xl font-inter leading-loose mb-8">
-                  That lens has reshaped how I think about design, technology, and purpose. Nomad Builder is a personal studio for building small, focused tools — each one a reflection of what I’ve learned along the way.
+                  That lens has reshaped how I think about design, technology, and purpose. Nomad Builder is a personal studio for building small, focused tools — each one a reflection of what I've learned along the way.
                 </p>
               </div>
               <div className="flex-shrink-0 min-w-[5rem] flex flex-col items-center justify-end md:ml-8 lg:ml-12 xl:ml-20 self-end mt-0 box-border">
@@ -123,16 +144,16 @@ export default function Workshop() {
           <LuxuryStarfield />
           <div className="max-w-4xl text-white text-center mb-12 flex flex-col flex-grow justify-center items-center" style={{position: 'relative', zIndex: 1, minHeight: '25vh'}}>
             <p className="text-2xl md:text-4xl font-playfair font-bold tracking-tight mb-10">
-              This isn’t about launching companies.
+              This isn't about launching companies.
             </p>
             <p className="text-xl md:text-2xl font-inter leading-loose mb-8 md:mb-12">
-              It’s about building fast and with intent — turning sharp insights into tangible, shareable tools.
+              It's about building fast and with intent — turning sharp insights into tangible, shareable tools.
             </p>
             <p className="text-xl md:text-2xl font-inter leading-loose mb-10 md:mb-16">
               This space will grow — one tool at a time.
             </p>
             <div className="w-full flex justify-center mt-16">
-              <button id="ctaButton" className="bg-purple-600 text-white py-4 px-8 rounded-full text-2xl font-bold transition-all duration-300 transform-gpu relative overflow-hidden group" style={{zIndex: 1}} onClick={() => navigate('/pool')}>
+              <button id="ctaButton" className="bg-purple-600 text-white py-4 px-8 rounded-full text-2xl font-bold transition-all duration-300 transform-gpu relative overflow-hidden group" style={{zIndex: 1}} onClick={openModal}>
                 <span className="relative z-10">Enter the Workshop</span>
                 <span className="absolute inset-0 bg-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></span>
               </button>
@@ -149,7 +170,48 @@ export default function Workshop() {
           </a>
         </div>
       </div>
-      {/* Luxury CTA at the very bottom removed as requested */}
+
+      {/* Modal */}
+      <div className={`modal-overlay ${isModalOpen ? 'active' : ''}`} onClick={closeModal}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <button className="modal-close" onClick={closeModal}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+          
+          <div className="modal-stars">
+            <div className="modal-star"></div>
+            <div className="modal-star"></div>
+            <div className="modal-star"></div>
+            <div className="modal-star"></div>
+            <div className="modal-star"></div>
+          </div>
+
+          <h2 className="modal-title">Full Workshop coming soon!</h2>
+          <p className="modal-description">
+            Check out the first tool here: <a 
+              href="https://www.nomadbuilder.io/wanderlog_ai/splash.html" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="modal-inline-link"
+            >
+              https://www.nomadbuilder.io/wanderlog_ai/splash.html
+            </a>
+          </p>
+          <p className="modal-description">
+            WanderLog AI is your intelligent travel storytelling companion — designed to take the thinking out of travel journaling.
+          </p>
+          <a 
+            href="https://www.nomadbuilder.io/wanderlog_ai/splash.html" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="modal-link"
+          >
+            WanderLog AI
+          </a>
+        </div>
+      </div>
     </>
   )
 } 
