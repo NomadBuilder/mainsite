@@ -95,49 +95,6 @@ src/
 - **Nomad Gradient**: Purple to blue gradient
 - **Glow Effects**: Subtle lighting for interactive elements
 
-## 🎬 Features
-
-### Homepage (/)
-- Fullscreen video intro with Veo integration
-- Smooth fade transition to 3D Builder's Core
-- Interactive 3D scene with click-to-enter workshop
-
-### Workshop (/workshop)
-- Responsive grid of tool tiles
-- Hover animations and effects
-- Smooth scroll-triggered reveals
-
-### Tool Detail Pages (/tool/:slug)
-- Immersive hero sections
-- Structured content: What It Does, What Sparked It, Demo/Code/Clone links
-- Personal reflections and insights
-
-### About Page (/about)
-- Scroll-based parallax effects
-- Poetic manifesto sections
-- Philosophical exploration of tool-building
-
-## 🧪 Development Roadmap
-
-### Week 1 ✅
-- [x] Set up Vite + Tailwind + Routing
-- [x] Add video intro component
-- [x] Create 3D portal scene
-
-### Week 2
-- [ ] Integrate real Veo video
-- [ ] Enhance 3D Builder's Core
-- [ ] Implement smooth transitions
-
-### Week 3
-- [ ] Build real tool data structure
-- [ ] Create actual tool implementations
-- [ ] Add more interactive features
-
-### Week 4
-- [ ] Polish animations and effects
-- [ ] Add audio/ambient features
-- [ ] Optimize performance
 
 ## 🎯 Core Philosophy
 
